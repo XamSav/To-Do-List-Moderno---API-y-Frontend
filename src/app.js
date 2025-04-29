@@ -16,7 +16,7 @@ app.use('/api/tasks', taskRoutes);
 const dbDir = path.join(__dirname, './db');
 
 if (!fs.existsSync(dbDir)) {
-  console.error('❌ Error: El directorio de la base de datos no existe.');
+  console.error('Error: El directorio de la base de datos no existe.');
   process.exit(1); // Salir de la app para evitar problemas posteriores
 }
 
@@ -119,5 +119,6 @@ app.use(errorHandler);
 // Puerto
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
+
