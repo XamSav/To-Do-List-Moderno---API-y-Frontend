@@ -4,10 +4,13 @@ Proyecto de gestión de tareas simple y moderno.
 Incluye una API REST en Node.js con Express y SQLite, junto a una interfaz web sencilla para interactuar.
 
 # Tecnologías utilizadas
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 Node.js
 
+![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
 Express.js
 
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 SQLite3
 
 HTML, CSS, JavaScript (Frontend simple)
