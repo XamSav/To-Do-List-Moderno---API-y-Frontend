@@ -25,29 +25,22 @@ Creación automática de la base de datos y tablas si no existen.
 
 Instalación
 Clonar el repositorio:
-
-bash
-Copiar
-Editar
+```bash
 git clone https://github.com/XamSav/To-Do-List-Moderno---API-y-Frontend.git
+```
 Instalar las dependencias:
-
-bash
-Copiar
-Editar
+```bash
 npm install
-Ejecutar el servidor:
+```
 
-bash
-Copiar
-Editar
+Ejecutar el servidor:
+```bash
 npm run dev
+```
 El servidor correrá en http://localhost:3000.
 
-Estructura del Proyecto
-pgsql
-Copiar
-Editar
+Estructura del Proyecto 
+```pgsql
 src/
 ├── controllers/
 │   └── taskController.js
@@ -60,8 +53,9 @@ src/
 ├── db/
 │   └── (se crea automáticamente)
 └── app.js
+```
 Demo Online 🚀
-🔗 Ver proyecto en Render
+🔗 [Ver proyecto en Render](https://to-do-list-moderno-api-y-frontend.onrender.com)
 
 Notas
 Si no existe el archivo tasks.db, se crea automáticamente al iniciar el servidor.
