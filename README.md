@@ -12,7 +12,7 @@ SQLite3
 
 HTML, CSS, JavaScript (Frontend simple)
 
-Funcionalidades
+# Funcionalidades
 Crear, leer, actualizar y eliminar tareas (CRUD).
 
 API RESTful.
@@ -39,7 +39,7 @@ npm run dev
 ```
 El servidor correrá en http://localhost:3000.
 
-Estructura del Proyecto 
+# Estructura del Proyecto 
 ```pgsql
 src/
 ├── controllers/
