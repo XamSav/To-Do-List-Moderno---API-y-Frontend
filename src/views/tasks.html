@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Tareas</title>
+  <link rel="stylesheet" href="/styles/style.css">
+
+</head>
+<body style="font-family: sans-serif;">
+    <nav>
+  <h1>Mis Tareas 📋</h1>
+  <p>Volver a <strong><a href="../..">Inicio</a></strong></p>
+</nav>
+  <section>
+  <ul id="task-list">
+    <!-- Aquí insertaremos tareas dinámicamente -->
+  </ul>
+
+  <h2>Crear nueva tarea</h2>
+  <form method="POST" action="/web/tasks">
+    <input name="titulo" placeholder="Título" required/>
+    <input name="descripcion" placeholder="Descripción" />
+    <select name="estado">
+      <option value="pendiente">Pendiente</option>
+      <option value="en progreso">En progreso</option>
+      <option value="completada">Completada</option>
+    </select>
+    <button type="submit">Crear</button>
+  </form>
+</section>
+</body>
+<script>
+    async function deleteTask(id) {
+  if (!confirm('¿Seguro que quieres eliminar esta tarea?')) return;
+
+  try {
+    const res = await fetch('/api/tasks/' + id, { method: 'DELETE' });
+    if (res.ok) {
+      const taskElement = document.getElementById('task-' + id);
+      if (taskElement) taskElement.remove();
+    } else {
+      alert('Error eliminando la tarea.');
+    }
+  } catch (err) {
+    alert('Error de conexión.');
+  }
+}
+
+async function updateTaskState(id, newState) {
+  try {
+    const res = await fetch('/api/tasks/' + id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ estado: newState })
+    });
+
+    if (res.ok) {
+      // Si la actualización fue exitosa, actualizamos la UI
+      const buttons = document.querySelectorAll(`#task-${id} .state-buttons button`);
+      buttons.forEach(button => {
+        button.classList.remove('active');
+      });
+
+      const activeButton = document.querySelector(`#task-${id} .state-buttons button:nth-child(${['pendiente', 'en progreso', 'completada'].indexOf(newState) + 1})`);
+      if (activeButton) {
+        activeButton.classList.add('active');
+      }
+    } else {
+      alert('Error actualizando estado.');
+    }
+  } catch (err) {
+    alert('Error de conexión.');
+  }
+}
+
+
+
+  </script>
+  
+</html>

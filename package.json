@@ -1,0 +1,19 @@
+{
+  "name": "task-api",
+  "version": "1.0.0",
+  "description": "API RESTful de gestión de tareas",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "XamSav - Samuel Viguera",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

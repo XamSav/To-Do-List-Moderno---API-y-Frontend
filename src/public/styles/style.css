@@ -1,0 +1,85 @@
+/* Reset de estilo para asegurar un diseño consistente */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  nav{
+    text-align: center;
+  }
+  section, nav{
+    margin-left: auto;
+    margin-right: auto;
+    width: 750px;
+  }
+  ul {
+    
+    list-style-type: none;
+    padding: 0;
+    
+  }
+  
+  li {
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  li:hover {
+    transform: scale(1.05);
+    background-color: #f1f1f1;
+  }
+  
+  button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #c0392b;
+  }
+  
+  .state-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .state-buttons button {
+    background-color: #3498db;
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .state-buttons button:hover {
+    background-color: #2980b9;
+  }
+  
+  .state-buttons .active {
+    background-color: #2ecc71;
+  }
+  
