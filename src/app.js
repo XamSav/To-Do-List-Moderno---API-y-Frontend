@@ -11,19 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Rutas de tareas
 app.use('/api/tasks', taskRoutes);
-const dbDir = path.join(__dirname, './db');
 
-if (!fs.existsSync(dbDir)) {
-  console.log('Warning: El directorio de la base de datos no existe.');
-  try{
-    console.log('Try: Creando ruta ./db.');
-    fs.mkdirSync(dbDir , { recursive: true });
-    console.log('Ruta ./db creada.');
-    
-  }catch (err) {
-    process.exit(1); // Salir de la app para evitar problemas posteriores
-  }
-}
 initDatabase();
 
 // Ruta principal
