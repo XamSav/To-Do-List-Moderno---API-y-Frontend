@@ -4,7 +4,7 @@ const taskRoutes = require('./routes/taskRoutes');
 const errorHandler = require('./middlewares/errorHandler');
 const fs = require('fs');
 const path = require('path');
-const sqlite3 = require('sqlite3').verbose();
+const { db, initDatabase } = require('./models/taskModel');
 app.use(express.static(path.join(__dirname, 'public')));
 // Middlewares
 app.use(express.json());
@@ -24,10 +24,7 @@ if (!fs.existsSync(dbDir)) {
     process.exit(1); // Salir de la app para evitar problemas posteriores
   }
 }
-
-const { connectToDatabase } = require('./models/taskModel');
-const db = connectToDatabase();
-
+initDatabase();
 
 // Ruta principal
 app.get('/', (req, res) => {
@@ -83,7 +80,6 @@ app.get('/web/tasks', (req, res, next) => {
 
 app.post('/web/tasks', (req, res, next) => {
   const { titulo, descripcion, estado } = req.body;
-  const db = require('./models/taskModel');
 
   const query = `INSERT INTO tasks (titulo, descripcion, estado) VALUES (?, ?, ?)`;
   db.run(query, [titulo, descripcion, estado || 'pendiente'], function (err) {

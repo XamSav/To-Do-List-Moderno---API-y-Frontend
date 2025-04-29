@@ -1,4 +1,5 @@
-const db = require('../models/taskModel');
+// taskController.js
+const { db } = require('../models/taskModel');
 
 // Obtener todas las tareas
 exports.getAllTasks = (req, res, next) => {
