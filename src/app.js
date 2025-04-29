@@ -5,8 +5,6 @@ const errorHandler = require('./middlewares/errorHandler');
 const fs = require('fs');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
-
-
 app.use(express.static(path.join(__dirname, 'public')));
 // Middlewares
 app.use(express.json());
@@ -16,25 +14,19 @@ app.use('/api/tasks', taskRoutes);
 const dbDir = path.join(__dirname, './db');
 
 if (!fs.existsSync(dbDir)) {
-  console.error('Error: El directorio de la base de datos no existe.');
+  console.log('Warning: El directorio de la base de datos no existe.');
   try{
-    fs.mkdirSync(dbDir);
+    console.log('Try: Creando ruta ./db.');
+    fs.mkdirSync(dbDir , { recursive: true });
+    console.log('Ruta ./db creada.');
+    
   }catch (err) {
     process.exit(1); // Salir de la app para evitar problemas posteriores
   }
 }
 
-const dbPath = path.join(dbDir, 'tasks.db');
-
-// Conectar a SQLite
-const dbt = new sqlite3.Database(dbPath, (err) => {
-  if (err) {
-    console.error('❌ Error conectando a la base de datos:', err.message);
-    process.exit(1);
-  } else {
-    console.log('✅ Conectado a la base de datos SQLite.');
-  }
-});
+const { connectToDatabase } = require('./models/taskModel');
+const db = connectToDatabase();
 
 
 // Ruta principal
@@ -52,10 +44,7 @@ app.get('/', (req, res) => {
     </html>
   `);
 });
-
 // Web UI para tareas
-const db = require('./models/taskModel');
-
 app.get('/web/tasks', (req, res, next) => {
   const filePath = path.join(__dirname, 'views', 'tasks.html');
   
@@ -91,7 +80,6 @@ app.get('/web/tasks', (req, res, next) => {
     });
   });
 });
-
 
 app.post('/web/tasks', (req, res, next) => {
   const { titulo, descripcion, estado } = req.body;
