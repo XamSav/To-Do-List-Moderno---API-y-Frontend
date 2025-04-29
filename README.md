@@ -1,9 +1,9 @@
-To-Do List Moderno (API + Frontend)
+# To-Do List Moderno (API + Frontend)
 
 Proyecto de gestión de tareas simple y moderno.
 Incluye una API REST en Node.js con Express y SQLite, junto a una interfaz web sencilla para interactuar.
 
-Tecnologías utilizadas
+# Tecnologías utilizadas
 Node.js
 
 Express.js
@@ -23,7 +23,7 @@ Actualización en tiempo real usando AJAX.
 
 Creación automática de la base de datos y tablas si no existen.
 
-Instalación
+# Instalación
 Clonar el repositorio:
 ```bash
 git clone https://github.com/XamSav/To-Do-List-Moderno---API-y-Frontend.git
@@ -54,10 +54,12 @@ src/
 │   └── (se crea automáticamente)
 └── app.js
 ```
-Demo Online 🚀
+# Demo Online 🚀
+
 🔗 [Ver proyecto en Render](https://to-do-list-moderno-api-y-frontend.onrender.com)
 
 Notas
+
 Si no existe el archivo tasks.db, se crea automáticamente al iniciar el servidor.
 
 Proyecto ideal para mostrar habilidades en construcción de APIs, gestión de base de datos y conexión Backend ↔ Frontend.
