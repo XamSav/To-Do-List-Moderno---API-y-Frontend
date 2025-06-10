@@ -62,5 +62,5 @@ Notas
 
 Si no existe el archivo tasks.db, se crea automáticamente al iniciar el servidor.
 
-Proyecto ideal para mostrar habilidades en construcción de APIs, gestión de base de datos y conexión Backend ↔ Frontend.
+Proyecto para mostrar habilidades en construcción de APIs, gestión de base de datos y conexión Backend ↔ Frontend.
 
